@@ -108,9 +108,10 @@ def w_choice(lst):
     return item
 
 def give_sample(amino):
-    """ Gives a codon for amino acid _amino_, taking int account codon bias
+    """ Gives a codon for amino acid _amino_, taking into account codon bias
     """
     probs=[]
+    # Build a list of codons which are above CUTOFF value (set later)
     for codon in code[amino]:
         if codon_usage[amino][codon] > CUTOFF:
             probs.append((codon, codon_usage[amino][codon]))
